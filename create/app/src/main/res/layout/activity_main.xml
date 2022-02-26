@@ -27,7 +27,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="@string/app_name"
+        android:text="@string/button"
         app:cornerRadius="10dp"
         tools:ignore="ExtraText"
         tools:layout_editor_absoluteX="165dp"
