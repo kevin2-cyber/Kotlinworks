@@ -22,15 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.21" />
 
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/button"
-        app:cornerRadius="10dp"
-        tools:ignore="ExtraText"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="317dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
