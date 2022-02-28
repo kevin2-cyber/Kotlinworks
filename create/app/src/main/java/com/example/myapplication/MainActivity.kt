@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         btnClickMe.setOnClickListener {
             timesClicked += 1
             tvMyTextView.text = timesClicked.toString()
-            Toast.makeText(this, "You clicked $tvMyTextView times", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "You clicked $timesClicked times", Toast.LENGTH_LONG).show()
         }
     }
 }
