@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.hide()
+
         val btnClickMe = findViewById<Button>(R.id.myButton)
         val tvMyTextView = findViewById<TextView>(R.id.textView)
         var timesClicked = 0
