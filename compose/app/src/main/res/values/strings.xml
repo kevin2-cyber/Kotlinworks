@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Composable Codelab</string>
+    <string name="app_name" translatable="false">Composable Codelab</string>
+    <string name="show_less" translatable="false">Show less</string>
+    <string name="show_more" translatable="false">Show more</string>
 </resources>
