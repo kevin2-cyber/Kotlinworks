@@ -25,7 +25,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import com.codelab.composablecodelab.R
 import com.codelab.composablecodelab.ui.theme.ComposableCodelabTheme
 
 class MainActivity : ComponentActivity() {
