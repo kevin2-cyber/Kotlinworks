@@ -19,6 +19,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
+    // singleton
     static WordRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (Word.class) {
