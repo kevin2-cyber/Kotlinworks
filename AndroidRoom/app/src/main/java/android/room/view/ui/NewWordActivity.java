@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.room.view.R;
 import android.room.view.databinding.ActivityNewWordBinding;
 import android.text.TextUtils;
+import android.widget.EditText;
 
 public class NewWordActivity extends AppCompatActivity {
 
     ActivityNewWordBinding binding;
     static final String EXTRA_REPLY = "android.room.view";
+    EditText mEditWordView;
 
 
     @Override
@@ -19,14 +22,15 @@ public class NewWordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
-        String mEditWordView = binding.editWord.getText().toString();
+        mEditWordView = findViewById(R.id.edit_word);
 
         binding.buttonSave.setOnClickListener(view -> {
             Intent replyIntent = new Intent();
-            if (TextUtils.isEmpty(mEditWordView)){
+            if (TextUtils.isEmpty(mEditWordView.getText())){
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                replyIntent.putExtra(EXTRA_REPLY, mEditWordView);
+                String word = mEditWordView.getText().toString();
+                replyIntent.putExtra(EXTRA_REPLY, word);
                 setResult(RESULT_OK, replyIntent);
             }
             finish();
