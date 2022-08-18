@@ -1,6 +1,7 @@
 package android.room.view;
 
 import android.app.Application;
+import android.room.view.model.Word;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;

@@ -1,6 +1,9 @@
 package android.room.view;
 
 import android.app.Application;
+import android.room.view.model.Word;
+import android.room.view.model.WordDao;
+import android.room.view.model.WordRoomDatabase;
 
 import androidx.lifecycle.LiveData;
 
@@ -31,8 +34,6 @@ class WordRepository {
  // You must call this on a non-UI thread or your app will throw an exception. Room ensures
  // that you're not doing any long running operations on the main thread, blocking the UI.
   void insert(Word word) {
-    WordRoomDatabase.databaseWriteExecutor.execute(() -> {
-     mWordDao.insert(word);
-    });
+    WordRoomDatabase.databaseWriteExecutor.execute(() -> mWordDao.insert(word));
   }
 }

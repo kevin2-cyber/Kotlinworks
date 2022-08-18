@@ -1,4 +1,4 @@
-package android.room.view;
+package android.room.view.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

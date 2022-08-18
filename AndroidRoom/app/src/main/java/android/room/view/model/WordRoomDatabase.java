@@ -1,4 +1,4 @@
-package android.room.view;
+package android.room.view.model;
 
 import android.content.Context;
 
@@ -16,11 +16,11 @@ public abstract class WordRoomDatabase extends RoomDatabase {
 
     private static volatile WordRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     // singleton
-    static WordRoomDatabase getDatabase(final Context context) {
+    public static WordRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (Word.class) {
                 if (INSTANCE == null) {

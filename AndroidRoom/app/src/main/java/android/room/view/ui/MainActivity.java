@@ -1,9 +1,10 @@
-package android.room.view;
+package android.room.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.room.view.WordListAdapter;
 import android.room.view.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

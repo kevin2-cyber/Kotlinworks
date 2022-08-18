@@ -1,5 +1,6 @@
 package android.room.view;
 
+import android.room.view.model.Word;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class WordListAdapter extends ListAdapter<Word, WordViewHolder> {
         holder.bind(current.getWord());
     }
 
-    static class WordDiff extends DiffUtil.ItemCallback<Word>{
+    public static class WordDiff extends DiffUtil.ItemCallback<Word>{
 
         @Override
         public boolean areItemsTheSame(@NonNull Word oldItem, @NonNull Word newItem) {
