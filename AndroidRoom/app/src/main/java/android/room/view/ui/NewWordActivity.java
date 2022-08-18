@@ -10,7 +10,7 @@ import android.text.TextUtils;
 public class NewWordActivity extends AppCompatActivity {
 
     ActivityNewWordBinding binding;
-    private static final String EXTRA_REPLY = "android.room.view";
+    static final String EXTRA_REPLY = "android.room.view";
 
 
     @Override
