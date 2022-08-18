@@ -1,6 +1,7 @@
 package android.room.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -19,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         final WordListAdapter adapter = new WordListAdapter(new WordListAdapter.WordDiff());
         binding.recyclerview.setAdapter(adapter);
-        binding.recyclerview.setLayoutManager(new RecyclerView.LayoutManager() {
-            @Override
-            public RecyclerView.LayoutParams generateDefaultLayoutParams() {
-                return null;
-            }
-        });
+        binding.recyclerview.setLayoutManager(new LinearLayoutManager(this));
     }
 }
