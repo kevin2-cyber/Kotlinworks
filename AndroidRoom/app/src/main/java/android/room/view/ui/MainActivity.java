@@ -1,17 +1,19 @@
 package android.room.view.ui;
 
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.room.view.R;
 import android.room.view.WordListAdapter;
 import android.room.view.WordViewModel;
 import android.room.view.databinding.ActivityMainBinding;
-import android.room.view.model.Word;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,22 +38,37 @@ public class MainActivity extends AppCompatActivity {
 
         binding.fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, NewWordActivity.class);
-            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            openActivityForResult();
         });
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+//            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
+//            mWordViewModel.insert(word);
+//        } else {
+//            Toast.makeText(
+//                    getApplicationContext(),
+//                    R.string.empty_not_saved,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
-            mWordViewModel.insert(word);
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.empty_not_saved,
-                    Toast.LENGTH_SHORT).show();
-        }
+    public void openActivityForResult(){
+        Intent intent = new Intent(this, NewWordActivity.class);
+        activityResultLauncher.launch(intent);
     }
+
+    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+
+                }
+            }
+    )
 }
