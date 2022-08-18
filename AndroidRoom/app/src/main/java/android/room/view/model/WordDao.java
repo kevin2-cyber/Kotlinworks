@@ -1,6 +1,5 @@
 package android.room.view.model;
 
-import android.room.view.model.Word;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
