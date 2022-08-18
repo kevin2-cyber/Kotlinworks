@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, NewWordActivity.class);
-            openActivityForResult();
+            openActivityForResult(intent);
         });
     }
 
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //    }
 
-    public void openActivityForResult(){
-        Intent intent = new Intent(this, NewWordActivity.class);
+    public void openActivityForResult(Intent intent){
+        intent = new Intent(this, NewWordActivity.class);
         activityResultLauncher.launch(intent);
     }
 
@@ -70,5 +70,5 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-    )
+    );
 }
