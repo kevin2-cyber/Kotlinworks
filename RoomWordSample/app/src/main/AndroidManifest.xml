@@ -4,6 +4,7 @@
     package="android.codelab.roomwordsample">
 
     <application
+        android:name=".WordsApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
