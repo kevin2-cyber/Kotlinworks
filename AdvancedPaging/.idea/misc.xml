@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kimi/Desktop/github/Kotlinworks/AdvancedPaging/app/src/main/res/drawable/ic_eye.xml" value="0.196" />
+        <entry key="..\:/Users/Kimi/Desktop/github/Kotlinworks/AdvancedPaging/app/src/main/res/drawable/ic_git_branch.xml" value="0.196" />
+        <entry key="..\:/Users/Kimi/Desktop/github/Kotlinworks/AdvancedPaging/app/src/main/res/drawable/ic_star.xml" value="0.196" />
         <entry key="..\:/Users/Kimi/Desktop/github/Kotlinworks/AdvancedPaging/app/src/main/res/layout/activity_main.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/Kimi/Desktop/github/Kotlinworks/AdvancedPaging/app/src/main/res/layout/repo_view_item.xml" value="0.21240942028985507" />
       </map>
