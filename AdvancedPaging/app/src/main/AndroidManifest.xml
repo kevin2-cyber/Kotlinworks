@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AdvancedPaging"
         tools:targetApi="31">
         <activity
-            android:name=".SearchRepositoriesActivity"
+            android:name=".ui.SearchRepositoriesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
