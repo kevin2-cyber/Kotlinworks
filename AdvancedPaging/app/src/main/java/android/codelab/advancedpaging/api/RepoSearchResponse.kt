@@ -1,5 +1,6 @@
 package android.codelab.advancedpaging.api
 
+import android.codelab.advancedpaging.model.Repo
 import com.google.gson.annotations.SerializedName
 
 data class RepoSearchResponse(
