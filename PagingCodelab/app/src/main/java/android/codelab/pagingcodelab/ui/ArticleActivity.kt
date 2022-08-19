@@ -1,5 +1,6 @@
-package android.codelab.pagingcodelab
+package android.codelab.pagingcodelab.ui
 
+import android.codelab.pagingcodelab.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
