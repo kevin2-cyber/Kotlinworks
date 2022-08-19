@@ -10,8 +10,12 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import retrofit2.HttpException
 import java.io.IOException
 
+// GitHub page API is 1 based: https://developer.github.com/v3/#pagination
 private const val GITHUB_STARTING_PAGE_INDEX = 1
 
+/**
+ * Repository class that works with local and remote data sources.
+ */
 class GithubRepository(private val service: GithubService) {
 
     // keep the list of all results received
@@ -27,6 +31,10 @@ class GithubRepository(private val service: GithubService) {
     // avoid triggering multiple requests in the same time
     private var isRequestInProgress = false
 
+    /**
+     * Search repositories whose names match the query, exposed as a stream of data that will emit
+     * every time we get more data from the network.
+     */
     suspend fun getSearchResultStream(query: String): Flow<RepoSearchResult> {
         Log.d("GithubRepository", "New query: $query")
         lastRequestedPage = 1
