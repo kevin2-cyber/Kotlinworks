@@ -1,12 +1,15 @@
 package android.codelab.advancedpaging.ui
 
-import android.codelab.advancedpaging.R
+
+import android.codelab.advancedpaging.databinding.ActivitySearchRepositoriesBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class SearchRepositoriesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_repositories)
+        val binding = ActivitySearchRepositoriesBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
     }
 }
