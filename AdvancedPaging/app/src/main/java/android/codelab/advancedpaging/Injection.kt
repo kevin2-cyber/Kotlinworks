@@ -26,7 +26,7 @@ object Injection {
      * [ViewModel] objects.
      */
 
-    fun provideViewModelFactory(owner: SavedStateRegistryOwner): ViewModelFactory.Factory {
+    fun provideViewModelFactory(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
         return ViewModelFactory(owner, provideGithubRepository())
     }
 }
