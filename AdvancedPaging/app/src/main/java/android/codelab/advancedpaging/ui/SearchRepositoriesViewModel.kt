@@ -5,6 +5,8 @@ import android.codelab.advancedpaging.model.Repo
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.paging.insertSeparators
+import androidx.paging.map
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -56,11 +58,11 @@ class SearchRepositoriesViewModel(
                 emit(UiAction.Scroll(lastQueryScrolled))
             }
 
-        pagingDataFlow = searches
-            .flatMapLatest {
-                searchRepo(it.query)
-            }
-            .cachedIn(viewModelScope)
+//        pagingDataFlow = searches
+//            .flatMapLatest {
+//                searchRepo(it.query)
+//            }
+//            .cachedIn(viewModelScope)
 
         state = combine(
             searches,
@@ -125,8 +127,35 @@ class SearchRepositoriesViewModel(
         super.onCleared()
     }
 
-    private fun searchRepo(queryString: String): Flow<PagingData<Repo>> =
-        repository.getSearchResultStream(queryString)
+    private fun searchRepo(queryString: String): Flow<PagingData<UiModel>> =
+       repository.getSearchResultStream(queryString)
+           .map {
+               pagingData -> pagingData.map { UiModel.RepoItem(it) }
+           }
+           .map {
+               it.insertSeparators { before, after ->
+                   if (after == null) {
+                       // we're at the end of the of the list
+                       return@insertSeparators null
+                   }
+
+                   if (before == null) {
+                       // we're at the beginning of the list
+                       return@insertSeparators UiModel.SeparatorItem("${after.roundedStarCount}0.000+ stars")
+                   }
+
+                   // check between 2 items
+                   if (before.roundedStarCount > after.roundedStarCount) {
+                       if (after.roundedStarCount >= 1) {
+                           UiModel.SeparatorItem("${after.roundedStarCount}0.000+ stars")
+                       } else {
+                           UiModel.SeparatorItem("< 10.000+ stars")
+                       }
+                   } else {
+                       null
+                   }
+               }
+           }
 }
 //
 //private val UiAction.Scroll.shouldFetchMore
@@ -142,6 +171,14 @@ sealed class UiAction {
 //        val totalItemCount: Int
     ) : UiAction()
 }
+
+sealed class UiModel {
+    data class RepoItem(val repo: Repo) :UiModel()
+    data class SeparatorItem(val description: String) : UiModel()
+}
+
+private val UiModel.RepoItem.roundedStarCount: Int
+    get() = this.repo.stars / 10_000
 
 
 data class UiState(
