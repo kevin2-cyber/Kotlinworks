@@ -49,7 +49,10 @@ class SearchRepositoriesActivity : AppCompatActivity() {
         uiActions: (UiAction) -> Unit
     ) {
         val repoAdapter = ReposAdapter()
-        list.adapter = repoAdapter
+        list.adapter = repoAdapter.withLoadStateHeaderAndFooter(
+            ReposLoadStateAdapter {repoAdapter.retry()},
+            ReposLoadStateAdapter {repoAdapter.retry()}
+        )
 
         bindSearch(
             uiState,
