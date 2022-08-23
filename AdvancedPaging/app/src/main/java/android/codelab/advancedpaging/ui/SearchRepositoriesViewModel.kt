@@ -25,7 +25,10 @@ class SearchRepositoriesViewModel(
      */
     val state: StateFlow<UiState>
 
-    val pagingDataFlow: Flow<PagingData<Repo>>
+    val pagingDataFlow: Flow<PagingData<UiModel>>
+        get() {
+            TODO()
+        }
 
     /**
      * Processor of side effects from the UI which in turn feedback into [state]
