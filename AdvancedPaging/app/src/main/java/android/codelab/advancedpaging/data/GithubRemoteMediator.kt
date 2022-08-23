@@ -82,10 +82,10 @@ class GithubRemoteMediator(
     ): RemoteKeys? {
         // Get the last page that was retrieved, that contained items.
         // From that last page, get the last item
-        return state.pages.lastOrNull {it.data.isNotEmpty()}?.data?.lastOrNull()?
+        return state.pages.lastOrNull {it.data.isNotEmpty()}?.data?.lastOrNull()
         .let { repo ->
             // Get the remote keys of the last item retrieved
-            repoDatabase.remoteKeysDao().remoteKeysRepoId(repo.id)
+            repo?.let { repoDatabase.remoteKeysDao().remoteKeysRepoId(it.id) }
         }
     }
 
@@ -94,10 +94,10 @@ class GithubRemoteMediator(
     ): RemoteKeys? {
         // Get the first page that was retrieved, that contained items.
         // From that first page, get the first item
-        return state.pages.firstOrNull{it.data.isNotEmpty()}?.data?.firstOrNull()?
+        return state.pages.firstOrNull{it.data.isNotEmpty()}?.data?.firstOrNull()
         .let { repo ->
             // Get the remote keys of the first items retrieved
-            repoDatabase.remoteKeysDao().remoteKeysRepoId(repo.id)
+            repo?.let { repoDatabase.remoteKeysDao().remoteKeysRepoId(it.id) }
         }
     }
 
