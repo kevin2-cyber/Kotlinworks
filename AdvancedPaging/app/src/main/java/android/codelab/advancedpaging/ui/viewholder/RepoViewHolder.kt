@@ -1,4 +1,4 @@
-package android.codelab.advancedpaging.ui
+package android.codelab.advancedpaging.ui.viewholder
 
 import android.codelab.advancedpaging.R
 import android.codelab.advancedpaging.model.Repo

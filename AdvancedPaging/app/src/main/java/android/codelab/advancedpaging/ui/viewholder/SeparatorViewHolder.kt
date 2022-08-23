@@ -1,4 +1,4 @@
-package android.codelab.advancedpaging.ui
+package android.codelab.advancedpaging.ui.viewholder
 
 import android.codelab.advancedpaging.R
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ class SeparatorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     companion object {
-        fun create(parent: ViewGroup) : SeparatorViewHolder{
+        fun create(parent: ViewGroup) : SeparatorViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.separator_view_item, parent, false)
             return SeparatorViewHolder(view)

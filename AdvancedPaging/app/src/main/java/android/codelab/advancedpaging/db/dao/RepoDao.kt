@@ -1,4 +1,4 @@
-package android.codelab.advancedpaging.db
+package android.codelab.advancedpaging.db.dao
 
 import android.codelab.advancedpaging.model.Repo
 import androidx.paging.PagingSource

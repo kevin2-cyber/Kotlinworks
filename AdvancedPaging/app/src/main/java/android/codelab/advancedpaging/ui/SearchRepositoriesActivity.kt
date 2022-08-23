@@ -4,6 +4,8 @@ package android.codelab.advancedpaging.ui
 import android.codelab.advancedpaging.Injection
 import android.codelab.advancedpaging.databinding.ActivitySearchRepositoriesBinding
 import android.codelab.advancedpaging.model.Repo
+import android.codelab.advancedpaging.ui.adapter.ReposAdapter
+import android.codelab.advancedpaging.ui.adapter.ReposLoadStateAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent

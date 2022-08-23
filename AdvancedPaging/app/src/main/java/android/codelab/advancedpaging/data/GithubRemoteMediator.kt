@@ -18,5 +18,4 @@ class GithubRemoteMediator(
         TODO("Not yet implemented")
     }
 
-
 }

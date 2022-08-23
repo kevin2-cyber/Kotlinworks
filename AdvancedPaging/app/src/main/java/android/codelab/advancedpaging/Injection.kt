@@ -2,7 +2,7 @@ package android.codelab.advancedpaging
 
 import android.codelab.advancedpaging.api.GithubService
 import android.codelab.advancedpaging.data.GithubRepository
-import android.codelab.advancedpaging.ui.ViewModelFactory
+import android.codelab.advancedpaging.ui.viewmodel.ViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.savedstate.SavedStateRegistryOwner
 

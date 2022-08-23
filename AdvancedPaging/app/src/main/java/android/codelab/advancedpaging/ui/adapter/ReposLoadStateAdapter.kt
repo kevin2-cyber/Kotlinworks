@@ -1,5 +1,6 @@
-package android.codelab.advancedpaging.ui
+package android.codelab.advancedpaging.ui.adapter
 
+import android.codelab.advancedpaging.ui.viewholder.ReposLoadStateViewHolder
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
