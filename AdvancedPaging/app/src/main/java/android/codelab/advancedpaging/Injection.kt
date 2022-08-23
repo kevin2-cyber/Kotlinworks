@@ -2,7 +2,9 @@ package android.codelab.advancedpaging
 
 import android.codelab.advancedpaging.api.GithubService
 import android.codelab.advancedpaging.data.GithubRepository
+import android.codelab.advancedpaging.db.RepoDatabase
 import android.codelab.advancedpaging.ui.viewmodel.ViewModelFactory
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import androidx.savedstate.SavedStateRegistryOwner
 
@@ -17,8 +19,8 @@ object Injection {
      * Creates an instance of [GithubRepository] based on the [GithubService] and a
      * [GithubLocalCache]
      */
-    private fun provideGithubRepository(): GithubRepository {
-        return GithubRepository(GithubService.create())
+    private fun provideGithubRepository(context: Context): GithubRepository {
+        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context))
     }
 
     /**
@@ -26,7 +28,7 @@ object Injection {
      * [ViewModel] objects.
      */
 
-    fun provideViewModelFactory(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
-        return ViewModelFactory(owner, provideGithubRepository())
+    fun provideViewModelFactory(context: Context, owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
+        return ViewModelFactory(owner, provideGithubRepository(context))
     }
 }

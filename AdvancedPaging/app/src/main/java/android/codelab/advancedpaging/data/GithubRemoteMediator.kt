@@ -22,6 +22,7 @@ class GithubRemoteMediator(
     private val service: GithubService,
     private val repoDatabase: RepoDatabase
 ) : RemoteMediator<Int, Repo>() {
+
     override suspend fun load(loadType: LoadType, state: PagingState<Int, Repo>): MediatorResult {
         val page = when(loadType) {
             LoadType.REFRESH -> {

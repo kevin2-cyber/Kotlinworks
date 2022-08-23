@@ -3,7 +3,7 @@ package android.codelab.advancedpaging.ui.adapter
 import android.codelab.advancedpaging.R
 import android.codelab.advancedpaging.ui.viewholder.RepoViewHolder
 import android.codelab.advancedpaging.ui.viewholder.SeparatorViewHolder
-import android.codelab.advancedpaging.ui.UiModel
+import android.codelab.advancedpaging.ui.viewmodel.UiModel
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
