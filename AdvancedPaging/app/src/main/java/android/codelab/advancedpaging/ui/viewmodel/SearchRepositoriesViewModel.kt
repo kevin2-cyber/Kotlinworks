@@ -8,6 +8,7 @@ import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -15,6 +16,7 @@ import kotlinx.coroutines.launch
  * ViewModel for the [SearchRepositoriesActivity] screen.
  * The ViewModel works with the [GithubRepository] to get the data.
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 class SearchRepositoriesViewModel(
     private val repository: GithubRepository,
     private val savedStateHandle: SavedStateHandle
@@ -64,6 +66,12 @@ class SearchRepositoriesViewModel(
 //                searchRepo(it.query)
 //            }
 //            .cachedIn(viewModelScope)
+
+        pagingDataFlow = searches
+            .flatMapLatest {
+                searchRepo(it.query)
+            }
+            .cachedIn(viewModelScope)
 
         state = combine(
             searches,
