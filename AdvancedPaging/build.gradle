@@ -35,6 +35,6 @@ ext {
     roomVersion = '2.4.3'
     pagingVersion = '3.1.1'
     retrofitVersion = '2.9.0'
-    okhttpLoggingInterceptorVersion = '4.9.0'
-    coroutines = '1.6.1'
+    okhttpLoggingInterceptorVersion = '5.0.0-alpha.10'
+    coroutines = '1.6.4'
 }
