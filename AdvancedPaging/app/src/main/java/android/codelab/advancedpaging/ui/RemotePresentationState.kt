@@ -22,7 +22,6 @@ enum class RemotePresentationState {
  * case of the [PagingSource] provide by Room.
  */
 
-@OptIn(ExperimentalCoroutinesApi::class)
 fun Flow<CombinedLoadStates>.asPresentationState(): Flow<SearchRepositoriesActivity.RemotePresentationState> =
     scan(SearchRepositoriesActivity.RemotePresentationState.INITIAL) {
             state, loadState ->
