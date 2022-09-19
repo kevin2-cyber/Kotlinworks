@@ -19,7 +19,7 @@ ext {
     appCompatVersion = '1.5.0'
     constraintLayoutVersion = '2.1.4'
     coreTestingVersion = '2.1.0'
-    coroutines = '1.6.1'
+    coroutines = '1.6.4'
     lifecycleVersion = '2.5.1'
     materialVersion = '1.6.1'
     roomVersion = '2.4.3'
