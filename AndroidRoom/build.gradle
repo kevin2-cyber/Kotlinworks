@@ -9,7 +9,7 @@ task clean(type: Delete) {
 }
 
 ext {
-    appCompatVersion = '1.5.0'
+    appCompatVersion = '1.5.1'
     constraintLayoutVersion = '2.1.4'
     coreTestingVersion = '2.0.4'
     lifecycleVersion = '2.5.1'
