@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'android.animation.reply'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "android.animation.reply"
         minSdk 28
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
