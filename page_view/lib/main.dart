@@ -22,7 +22,7 @@ class MyHomePage extends StatelessWidget {
   final List<SliderModel> mySlides = [
     SliderModel(
       imageAssetPath: Image.asset(
-        'assets/images/main_logo.png',
+        'assets/images/img.jpg',
         scale: 1,
       ),
       title: 'Developer Student Club',
@@ -45,7 +45,7 @@ class MyHomePage extends StatelessWidget {
       desc: 'discover people',
     ),
     SliderModel(
-      imageAssetPath: Image.asset('assets/images/img/jpg'),
+      imageAssetPath: Image.asset('assets/images/img.jpg'),
       title: 'Developer Student Club',
       desc: 'discover people',
     ),
