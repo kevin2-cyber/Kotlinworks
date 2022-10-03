@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:onboarding_screen/onboarding_screen.dart';
 
 void main() => runApp(const PageViewApp());
@@ -28,10 +29,10 @@ class MyHomePage extends StatelessWidget {
       title: 'Developer Student Club',
       desc: 'discover people',
       minTitleFontSize: 10,
-      descStyle: const TextStyle(
+      descStyle: GoogleFonts.poppins(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: Colors.black,
+        color: Colors.black38,
       ),
       titleStyle: const TextStyle(
         fontSize: 20,
