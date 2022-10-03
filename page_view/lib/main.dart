@@ -20,6 +20,13 @@ class PageViewApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+
+  static var descStyle = GoogleFonts.poppins(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: Colors.black38,
+  );
+
   final List<SliderModel> mySlides = [
     SliderModel(
       imageAssetPath: Image.asset(
@@ -29,11 +36,7 @@ class MyHomePage extends StatelessWidget {
       title: 'Developer Student Club',
       desc: 'discover people',
       minTitleFontSize: 10,
-      descStyle: GoogleFonts.poppins(
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
-        color: Colors.black38,
-      ),
+      descStyle: descStyle,
       titleStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w400,
