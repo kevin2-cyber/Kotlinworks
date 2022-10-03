@@ -27,6 +27,12 @@ class MyHomePage extends StatelessWidget {
     color: Colors.black38,
   );
 
+  static var titleStyle = GoogleFonts.poppins(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: Colors.black38,
+  );
+
   final List<SliderModel> mySlides = [
     SliderModel(
       imageAssetPath: Image.asset(
@@ -37,11 +43,7 @@ class MyHomePage extends StatelessWidget {
       desc: 'discover people',
       minTitleFontSize: 10,
       descStyle: descStyle,
-      titleStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w400,
-        color: Colors.black,
-      ),
+      titleStyle: titleStyle,
     ),
     SliderModel(
       imageAssetPath: Image.asset('assets/images/img.jpg'),
