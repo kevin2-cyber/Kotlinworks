@@ -49,21 +49,29 @@ class MyHomePage extends StatelessWidget {
       imageAssetPath: Image.asset('assets/images/img.jpg'),
       title: 'Developer Student Club',
       desc: 'discover people',
+      descStyle: descStyle,
+      titleStyle: titleStyle,
     ),
     SliderModel(
       imageAssetPath: Image.asset('assets/images/img.jpg'),
       title: 'Developer Student Club',
       desc: 'discover people',
+      descStyle: descStyle,
+      titleStyle: titleStyle,
     ),
     SliderModel(
       imageAssetPath: Image.asset('assets/images/img.jpg'),
       title: 'Developer Student Club',
       desc: 'discover people',
+      descStyle: descStyle,
+      titleStyle: titleStyle,
     ),
     SliderModel(
       imageAssetPath: Image.asset('assets/images/img.jpg'),
       title: 'Developer Student Club',
       desc: 'discover people',
+      descStyle: descStyle,
+      titleStyle: titleStyle,
     ),
   ];
   final PageController _controller = PageController();
@@ -106,16 +114,16 @@ class SliderModel {
     this.desc = "title",
     this.miniDescFontSize = 12.0,
     this.minTitleFontSize = 15.0,
-    this.descStyle,
-    this.titleStyle,
+    required this.descStyle,
+    required this.titleStyle,
   });
 
   final Image imageAssetPath;
   final String title;
-  final TextStyle? titleStyle;
+  final TextStyle titleStyle;
   final double minTitleFontSize;
   final String desc;
-  final TextStyle? descStyle;
+  final TextStyle descStyle;
   final double miniDescFontSize;
 }
 
