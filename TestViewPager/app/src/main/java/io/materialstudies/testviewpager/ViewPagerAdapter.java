@@ -48,7 +48,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.item, container, false);
 
         // referencing the image view from the item.xml file
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.imageViewMain);
+        ImageView imageView = itemView.findViewById(R.id.imageViewMain);
 
         // setting the image in the imageView
         imageView.setImageResource(images[position]);
