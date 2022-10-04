@@ -5,7 +5,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import io.materialstudies.testviewpager.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
+
+    // enable viewBinding
+    ActivityMainBinding binding;
 
     // creating an object of ViewPager
     ViewPager mViewPager;
@@ -21,11 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(binding.getRoot());
 
         // Initializing the ViewPager Object
-        mViewPager = (ViewPager)findViewById(R.id.viewPagerMain);
+        mViewPager = binding.viewPagerMain;
 
         // Initializing the ViewPagerAdapter
         mViewPagerAdapter = new ViewPagerAdapter(MainActivity.this, images);
