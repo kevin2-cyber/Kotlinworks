@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.google.android.material.tabs.TabLayout;
+
 import io.materialstudies.testviewpager.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     // creating an object of ViewPager
     ViewPager mViewPager;
+
+    // creating an object of TabLayout
+    TabLayout mTabLayout;
 
     // images array
     int[] images = {R.drawable.ic_flag_of_argentina, R.drawable.ic_flag_of_australia, R.drawable.ic_flag_of_belgium,
@@ -33,10 +38,16 @@ public class MainActivity extends AppCompatActivity {
         // Initializing the ViewPager Object
         mViewPager = binding.viewPagerMain;
 
+        // Initializing the TabLayout Object
+        mTabLayout = binding.tabLayout;
+
         // Initializing the ViewPagerAdapter
         mViewPagerAdapter = new ViewPagerAdapter(MainActivity.this, images);
 
         // Adding the Adapter to the ViewPager
         mViewPager.setAdapter(mViewPagerAdapter);
+
+        // setting up with viewPager
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 }
