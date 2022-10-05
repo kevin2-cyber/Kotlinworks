@@ -7,6 +7,8 @@
             android:thickness="8dp"
             android:useLevel="false">
             <solid android:color="@color/purple_200"/>
+
+            <stroke android:color="@color/black" android:width="1dp"/>
         </shape>
     </item>
 </layer-list>

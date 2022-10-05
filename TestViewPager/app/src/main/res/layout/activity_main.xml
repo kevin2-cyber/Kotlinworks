@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabBackground="@drawable/tab_selector"
+        android:layout_marginTop="680dp"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"/>
 
