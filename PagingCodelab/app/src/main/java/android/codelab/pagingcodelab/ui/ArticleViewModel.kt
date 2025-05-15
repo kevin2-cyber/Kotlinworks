@@ -4,10 +4,14 @@ import android.codelab.pagingcodelab.data.Article
 import android.codelab.pagingcodelab.data.ArticleRepository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import kotlinx.coroutines.flow.Flow
 
+
+private const val ITEMS_PER_PAGE = 50
 /**
  * ViewModel for the [ArticleActivity] screen.
  * The ViewModel works with the [ArticleRepository] to get the data.
@@ -15,13 +19,11 @@ import kotlinx.coroutines.flow.stateIn
 class ArticleViewModel(
     repository: ArticleRepository,
 ) : ViewModel() {
-    /**
-     * Stream of [Article]s for the UI.
-     */
-    val items: StateFlow<List<Article>> = repository.articleStream
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(),
-            initialValue = listOf()
-        )
+
+    val items: Flow<PagingData<Article>> = Pager(
+        config = PagingConfig(pageSize = ITEMS_PER_PAGE, enablePlaceholders = false),
+        pagingSourceFactory = { repository.articlePagingSource() }
+    )
+        .flow
+        .cachedIn(viewModelScope)
 }
