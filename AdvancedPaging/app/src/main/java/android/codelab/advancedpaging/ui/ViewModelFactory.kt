@@ -1,4 +1,4 @@
-package android.codelab.advancedpaging.ui.viewmodel
+package android.codelab.advancedpaging.ui
 
 import android.codelab.advancedpaging.data.GithubRepository
 import androidx.lifecycle.AbstractSavedStateViewModelFactory

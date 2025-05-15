@@ -3,12 +3,12 @@ package android.codelab.advancedpaging.ui.viewholder
 import android.codelab.advancedpaging.R
 import android.codelab.advancedpaging.model.Repo
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.net.toUri
 
 /**
  * View Holder for a [Repo] RecyclerView list item.
@@ -25,7 +25,7 @@ class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     init {
         view.setOnClickListener {
             repo?.url?.let { url ->
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                val intent = Intent(Intent.ACTION_VIEW, url.toUri())
                 view.context.startActivity(intent)
             }
         }
