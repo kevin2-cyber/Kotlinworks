@@ -7,10 +7,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val IN_QUALIFIER = "in:name,description"
-
+/**
+ * Github API communication setup via Retrofit.
+ */
 interface GithubService {
-
+    /**
+     * Get repos ordered by stars.
+     */
     @GET("search/repositories?sort=stars")
     suspend fun searchRepos(
         @Query("q") query: String,
@@ -19,7 +22,7 @@ interface GithubService {
     ): RepoSearchResponse
 
     companion object {
-        private const val BASE_URL = "https://api.github.com"
+        private const val BASE_URL = "https://api.github.com/"
 
         fun create(): GithubService {
             val logger = HttpLoggingInterceptor()
@@ -36,5 +39,4 @@ interface GithubService {
                 .create(GithubService::class.java)
         }
     }
-
 }

@@ -49,10 +49,10 @@ dependencies {
 
     // architecture components
     implementation libs.core.ktx
-//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-//    implementation libs.lifecycle.viewmodel.ktx
-//    implementation libs.lifecycle.livedata.ktx
-//    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
+    implementation libs.lifecycle.runtime.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.savedstate
     implementation libs.room.runtime
     implementation libs.room.ktx
     implementation libs.room.paging

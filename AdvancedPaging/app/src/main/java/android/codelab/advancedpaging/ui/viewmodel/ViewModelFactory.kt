@@ -6,13 +6,14 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 
+
 /**
  * Factory for ViewModels
  */
 class ViewModelFactory(
     owner: SavedStateRegistryOwner,
     private val repository: GithubRepository
-) : AbstractSavedStateViewModelFactory(owner, null){
+) : AbstractSavedStateViewModelFactory(owner, null) {
 
     override fun <T : ViewModel> create(
         key: String,

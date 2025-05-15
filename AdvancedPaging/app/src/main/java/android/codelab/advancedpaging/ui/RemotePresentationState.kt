@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.scan
  * An enum representing the status of items in the as fetched by the
  * [Pager] when used with a [RemoteMediator]
  */
-
 enum class RemotePresentationState {
     INITIAL, REMOTE_LOADING, SOURCE_LOADING, PRESENTED
 }
@@ -21,25 +20,24 @@ enum class RemotePresentationState {
  * successful [RemoteMediator] fetches always cause invalidation of the [PagingSource] as in the
  * case of the [PagingSource] provide by Room.
  */
-
-fun Flow<CombinedLoadStates>.asPresentationState(): Flow<SearchRepositoriesActivity.RemotePresentationState> =
-    scan(SearchRepositoriesActivity.RemotePresentationState.INITIAL) {
-            state, loadState ->
-        when(state) {
-            SearchRepositoriesActivity.RemotePresentationState.PRESENTED -> when(loadState.mediator?.refresh) {
-                is LoadState.Loading -> SearchRepositoriesActivity.RemotePresentationState.REMOTE_LOADING
+@OptIn(ExperimentalCoroutinesApi::class)
+fun Flow<CombinedLoadStates>.asRemotePresentationState(): Flow<RemotePresentationState> =
+    scan(RemotePresentationState.INITIAL) { state, loadState ->
+        when (state) {
+            RemotePresentationState.PRESENTED -> when (loadState.mediator?.refresh) {
+                is LoadState.Loading -> RemotePresentationState.REMOTE_LOADING
                 else -> state
             }
-            SearchRepositoriesActivity.RemotePresentationState.INITIAL -> when(loadState.mediator?.refresh) {
-                is LoadState.Loading -> SearchRepositoriesActivity.RemotePresentationState.REMOTE_LOADING
+            RemotePresentationState.INITIAL -> when (loadState.mediator?.refresh) {
+                is LoadState.Loading -> RemotePresentationState.REMOTE_LOADING
                 else -> state
             }
-            SearchRepositoriesActivity.RemotePresentationState.REMOTE_LOADING -> when(loadState.source.refresh) {
-                is LoadState.Loading -> SearchRepositoriesActivity.RemotePresentationState.SOURCE_LOADING
+            RemotePresentationState.REMOTE_LOADING -> when (loadState.source.refresh) {
+                is LoadState.Loading -> RemotePresentationState.SOURCE_LOADING
                 else -> state
             }
-            SearchRepositoriesActivity.RemotePresentationState.SOURCE_LOADING -> when(loadState.source.refresh) {
-                is LoadState.NotLoading -> SearchRepositoriesActivity.RemotePresentationState.PRESENTED
+            RemotePresentationState.SOURCE_LOADING -> when (loadState.source.refresh) {
+                is LoadState.NotLoading -> RemotePresentationState.PRESENTED
                 else -> state
             }
         }
