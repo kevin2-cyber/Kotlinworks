@@ -106,10 +106,6 @@ class SearchRepositoriesActivity : AppCompatActivity() {
                 .collect(searchRepo::setText)
         }
 
-//        uiState
-//            .map(UiState::query)
-//            .distinctUntilChanged()
-//            .observe(this@SearchRepositoriesActivity,searchRepo::setText)
     }
 
     private fun ActivitySearchRepositoriesBinding.updateRepoListFromInput(
@@ -214,32 +210,7 @@ class SearchRepositoriesActivity : AppCompatActivity() {
             }
         }
 
-//        uiState
-//            .map(UiState::searchResult)
-//            .distinctUntilChanged()
-//            .observe(this@SearchRepositoriesActivity) { result ->
-//                when(result) {
-//                    is RepoSearchResult.Success -> {
-//                        showEmptyList(result.data.isEmpty())
-//                        repoAdapter.submitList(result.data)
-//                    }
-//                    is RepoSearchResult.Error -> {
-//                        Toast.makeText(
-//                            this@SearchRepositoriesActivity,
-//                            "\uD83D\uDE28 Whoops $result.message}",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                    }
-//                }
-//            }
     }
-
-//    private fun ActivitySearchRepositoriesBinding.showEmptyList(
-//        show: Boolean
-//    ) {
-//        emptyList.isVisible = show
-//        list.isVisible = !show
-//    }
 
 
     enum class RemotePresentationState {

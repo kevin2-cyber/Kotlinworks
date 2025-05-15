@@ -1,19 +1,17 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id 'kotlin-kapt'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
 android {
-    compileSdk 32
+    compileSdk 35
+    namespace 'android.codelab.advancedpaging'
 
     defaultConfig {
         applicationId "android.codelab.advancedpaging"
-        minSdk 28
-        targetSdk 32
+        minSdkVersion 21
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
 
@@ -27,44 +25,43 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
     }
 
     buildFeatures {
         viewBinding true
     }
-    namespace 'android.codelab.advancedpaging'
+
 }
 
 dependencies {
-
     implementation fileTree(dir: 'libs')
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
-    implementation "androidx.appcompat:appcompat:$supportLibVersion"
-    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation "com.google.android.material:material:$materialVersion"
+    implementation libs.kotlinx.coroutines.android
+    implementation  libs.kotlinx.coroutines.core
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.material
 
     // architecture components
-    implementation "androidx.core:core-ktx:$coreVersion"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
-    implementation "androidx.room:room-runtime:$roomVersion"
-    implementation "androidx.room:room-ktx:$roomVersion"
-    implementation "androidx.room:room-paging:$roomVersion"
-    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation libs.core.ktx
+//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+//    implementation libs.lifecycle.viewmodel.ktx
+//    implementation libs.lifecycle.livedata.ktx
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
+    implementation libs.room.runtime
+    implementation libs.room.ktx
+    implementation libs.room.paging
+    implementation libs.paging.runtime.ktx
+    kapt libs.room.compiler
 
     // retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.retrofit.mock
+    implementation libs.logging.interceptor
 }
