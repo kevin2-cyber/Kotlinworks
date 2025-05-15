@@ -1,22 +1,13 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
-
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    signingConfigs {
-        debug {
-            keyAlias 'alias'
-        }
-    }
+    namespace 'android.codelab.pagingcodelab'
     compileSdk buildConfig.compileSdk
 
     defaultConfig {
-        applicationId "android.codelab.pagingcodelab"
+        applicationId "com.google.samples.apps.nowinandroid"
         minSdk buildConfig.minSdk
         targetSdk buildConfig.targetSdk
         versionCode 1
@@ -32,27 +23,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
         coreLibraryDesugaringEnabled true
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_17.toString()
         freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 
-//    dataBinding {
-//        enabled true
-//    }
-
-    buildFeautures {
+    buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
-
-    implementation('')
     coreLibraryDesugaring libs.android.desugarJdkLibs
 
     implementation libs.kotlinx.coroutines.core

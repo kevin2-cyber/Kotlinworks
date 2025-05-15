@@ -3,6 +3,9 @@ package android.codelab.pagingcodelab.data
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+/**
+ * Immutable model class for an article
+ */
 data class Article(
     val id: Int,
     val title: String,
