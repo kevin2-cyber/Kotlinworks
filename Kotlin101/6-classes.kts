@@ -2,11 +2,11 @@
  Full support for OOP, we won't use it a lot in JetPack composable
  Class syntax is different from what you expect!
 */
-class Person {
+open class Person {
     // property
     public var id : Int = 0
     // function - method
-    fun print() {
+    open fun print() {
         println("Person id: ${this.id}")
     }
 }
@@ -15,7 +15,7 @@ val p = Person()
 
 // so far, so good, but there's more.
 // classes are closed by default, they can't be inherited
-class User: Person() { }   // WRONG!
+class User : Person() { }   // WRONG!
 
 // you have to declare a class explicitly as open to let it being extended
 // when we declare the superclass, we are actually executing its constructor! (parenthesis)
@@ -31,14 +31,15 @@ class DBRecord: Record() {
 // there is a Primary constructor, secondary constructors and a initializer block
 // The primary constructor is defined in the class name definition
 
-open class Request(val url: String)   // if the class has no other props or methods, don't need a block
+open class Request(var id: Int, val url: String)   // if the class has no other props or methods, don't need a block
 // primary constructor arguments become properties if var or val is used!
-val r = Request("https://frontendmasters.com")
+val r = Request(2,"https://frontendmasters.com")
+print(r.id)
 print(r.url)
 
 // An initializer block is just a code that will be executed after init
 // You can have many init blocks per class
-class HttpRequest(url: String): Request(url) {
+class HttpRequest(url: String): Request(0, url) {
     init {
         print("Connecting to HTTP server...")
     }
