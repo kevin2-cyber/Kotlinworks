@@ -17,7 +17,8 @@ fun sum(a: Int, b: Int): Int {
 }
 
 // How do you call sum?
-
+sum(4,1)
+sum(a=4, b=1)
 
 /*: * Extension functions
     You can add functions to any Type! Careful OOP extremists!
