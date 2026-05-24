@@ -7,6 +7,7 @@
 interface Listener {
     fun listen()
 }
+
 class Human: Listener {
     override fun listen() {
         print("I'm listening!")
@@ -18,6 +19,7 @@ object KotlinWorkshop {
     val name = "Introduction to Kotlin and Android app development"
     val url = "https://frontendmasters.com"
 }
+
 // Classes don't have static members, but they contain a companion object
 class User(var name: String) {
     fun print() {
@@ -34,6 +36,8 @@ class User(var name: String) {
         }
     }
 }
+
+User.printAll()
 
 // SEALED CLASS: A class that can have no instances; only an implicit companion object
 sealed class Utilities {
