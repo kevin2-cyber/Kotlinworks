@@ -16,6 +16,12 @@ fun sum(a: Int, b: Int): Int {
     return a+b
 }
 
+fun sum3(a: Int, b: Int, c: Int): Int {
+    return a+b+c
+}
+
+sum3(4,c=4,b=2)
+
 // How do you call sum?
 sum(4,1)
 sum(a=4, b=1)
