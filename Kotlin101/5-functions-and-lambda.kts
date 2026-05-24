@@ -38,8 +38,8 @@ var lambda: (Int, Int) -> Int = {a,b -> a+b}
 /*: * Lambda functions, Type is (arguments) -> ReturnType
    if no return is expected, we use Unit
  */
-val myFunction: (Int) -> Unit = {
-    print(it)
+val myFunction: (Int, Boolean) -> Unit = {int, isReady ->
+    print(if (isReady) int else 0)
 }
 // implicit `it` argument when there is only one argument
 // you can still name it if you want to
