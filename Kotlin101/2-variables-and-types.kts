@@ -38,7 +38,11 @@ var what: Any         // avoid Any as much as possible
 // String Literals, double quotes
 print("Hello World")
 // Multi-line literal strings
-
+val multiLine = """
+    {
+    "name": "Kotlin",
+    }
+""".trimIndent()
 
 // Every string can have template expressions using $ or ${}
 // expression result will be converted to string
