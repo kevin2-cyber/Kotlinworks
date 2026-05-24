@@ -4,8 +4,6 @@
 var myName: String        // What's the value? Null? IMPOSSIBLE
 var myLastname: String?   // It can handle a null value
 
-var nameWithNull: String?
-
 // Null operators
 // **************
 print(myLastname.length)   // it doesn't work!
