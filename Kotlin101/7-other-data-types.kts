@@ -37,8 +37,6 @@ class User(var name: String) {
     }
 }
 
-User.printAll()
-
 // SEALED CLASS: A class that can have no instances; only an implicit companion object
 sealed class Utilities {
     fun plusTax(price: Double): Double = price * 1.10
