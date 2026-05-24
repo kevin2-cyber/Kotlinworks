@@ -34,7 +34,7 @@ fun Int.isEven() : Boolean {
 }
 
 
-
+var lambda: (Int, Int) -> Int = {a,b -> a+b}
 /*: * Lambda functions, Type is (arguments) -> ReturnType
    if no return is expected, we use Unit
  */
