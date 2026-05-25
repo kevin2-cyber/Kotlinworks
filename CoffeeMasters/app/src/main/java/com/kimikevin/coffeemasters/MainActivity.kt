@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -33,10 +34,19 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun FirstComposable() {
-    Text(
-        text = "Hello Jetpack Compose!",
-        modifier = Modifier
-            .background(Color.Yellow)
-            .padding(16.dp)
-    )
+    Column() {
+        Text(
+            text = "Hello Jetpack Compose!",
+            modifier = Modifier
+                .padding(8.dp)
+                .background(Color.Yellow)
+                .padding(16.dp)
+        )
+        Text(
+        "Other Text from Jetpack Compose",
+            modifier = Modifier
+                .padding(16.dp)
+        )
+    }
+
 }
