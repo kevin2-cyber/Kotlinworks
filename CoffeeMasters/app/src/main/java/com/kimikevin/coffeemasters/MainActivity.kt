@@ -10,7 +10,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,18 +37,22 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun FirstComposable() {
+    var name = remember {
+        mutableStateOf("")
+    }
     Column() {
         Text(
-            text = "Hello Jetpack Compose!",
+            text = "Hello ${name.value}",
             modifier = Modifier
                 .padding(8.dp)
                 .background(Color.Yellow)
                 .padding(16.dp)
         )
-        Text(
-        "Other Text from Jetpack Compose",
-            modifier = Modifier
-                .padding(16.dp)
+        TextField(
+            value = name.value,
+            onValueChange = {
+                name.value = it
+            }
         )
     }
 
