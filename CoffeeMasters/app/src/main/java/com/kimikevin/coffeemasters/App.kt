@@ -1,0 +1,62 @@
+package com.kimikevin.coffeemasters
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
+import com.kimikevin.coffeemasters.ui.theme.CoffeeMastersTheme
+
+@Preview
+@Composable
+private fun AppPreview() {
+    CoffeeMastersTheme() {
+        App()
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun App() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    AppTitle()
+                }
+            )
+        },
+        bottomBar = {
+            Text(
+                "I'm a bottom bar",
+                fontSize = 24.sp
+            )
+        }
+    ) { innerPadding ->
+        OffersPage(
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
+
+@Composable
+fun AppTitle() {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Coffee Masters Logo"
+        )
+    }
+}

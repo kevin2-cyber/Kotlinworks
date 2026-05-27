@@ -24,9 +24,8 @@ import androidx.compose.ui.unit.sp
 
 
 
-@Preview(showBackground = true)
 @Composable
-fun OffersPage() {
+fun OffersPage(modifier: Modifier) {
     Column(
         Modifier.verticalScroll(rememberScrollState())
     ) {
