@@ -21,7 +21,18 @@ import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true, widthDp = 400)
 @Composable
-fun Offer() {
+private fun OfferPreview() {
+    Offer(
+        title = "Coffee Masters",
+        description = "Coffee Masters is a coffee shop that sells coffee beans."
+    )
+}
+
+@Composable
+fun Offer(
+    title: String,
+    description: String,
+) {
     Image(
         painter = painterResource(R.drawable.background_pattern),
         contentDescription = "Background Pattern",
@@ -34,7 +45,7 @@ fun Offer() {
         modifier = Modifier.padding(16.dp)
     ) {
         Text(
-            text = "My Title",
+            text = title,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier
@@ -45,7 +56,7 @@ fun Offer() {
             modifier = Modifier.height(16.dp)
         )
         Text(
-            text = "Description",
+            text = description,
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.tertiary)
