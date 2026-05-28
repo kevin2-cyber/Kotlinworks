@@ -36,10 +36,7 @@ fun App() {
             )
         },
         bottomBar = {
-            Text(
-                "I'm a bottom bar",
-                fontSize = 24.sp
-            )
+
         }
     ) { innerPadding ->
         OffersPage(
