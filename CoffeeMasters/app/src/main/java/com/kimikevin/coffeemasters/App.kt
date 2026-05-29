@@ -17,7 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kimikevin.coffeemasters.Routes.MenuPage
+import com.kimikevin.coffeemasters.pages.InfoPage
+import com.kimikevin.coffeemasters.pages.MenuPage
 import com.kimikevin.coffeemasters.pages.OffersPage
+import com.kimikevin.coffeemasters.pages.OrderPage
 import com.kimikevin.coffeemasters.ui.theme.CoffeeMastersTheme
 
 
@@ -40,30 +44,12 @@ fun App() {
             content = {
                 when (selectedRoute.value) {
                     Routes.MenuPage.route ->
-                        Text(
-                            "Menu",
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier
-                                .padding(it)
-                                .padding(16.dp)
-                        )
+                        MenuPage(modifier = Modifier.padding(it))
                     Routes.OffersPage.route -> OffersPage(modifier = Modifier.padding(it))
                     Routes.OrderPage.route ->
-                        Text(
-                            "Order",
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier
-                                .padding(it)
-                                .padding(16.dp)
-                        )
+                        OrderPage(modifier = Modifier.padding(it))
                     Routes.InfoPage.route ->
-                        Text(
-                            "Info",
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier
-                                .padding(it)
-                                .padding(16.dp)
-                        )
+                        InfoPage(modifier = Modifier.padding(it))
                 }
             },
             bottomBar = {
