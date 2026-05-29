@@ -24,18 +24,15 @@ import androidx.compose.ui.unit.sp
 
 
 
+@Preview
 @Composable
-fun OffersPage(modifier: Modifier) {
+fun OffersPage(modifier: Modifier = Modifier) {
     Column(
         Modifier.verticalScroll(rememberScrollState())
     ) {
         Offer(
             title = "Early Coffee",
             description = "10% off. Offer valid from 6am to 9am."
-        )
-        Offer(
-            title = "Welcome Gift",
-            description = "25% off on your first order."
         )
         Offer(
             title = "Welcome Gift",
