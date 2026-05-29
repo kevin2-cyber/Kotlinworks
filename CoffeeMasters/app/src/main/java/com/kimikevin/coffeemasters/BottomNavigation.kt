@@ -9,23 +9,23 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kimikevin.coffeemasters.ui.theme.Alternative1
-import com.kimikevin.coffeemasters.ui.theme.OnPrimary
 
 data class NavPage(
     var name: String,
@@ -42,13 +42,6 @@ object Routes {
     val pages = listOf(MenuPage, OffersPage, OrderPage, InfoPage)
 }
 
-@Preview
-@Composable
-private fun NavBarItemPreview() {
-    NavBarItem(Routes.MenuPage)
-}
-
-@Preview
 @Composable
 fun NavBar(
     selectedRoute: String = Routes.MenuPage.route,
@@ -56,16 +49,20 @@ fun NavBar(
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.primary)
-            .padding(16.dp)
+            .windowInsetsPadding(NavigationBarDefaults.windowInsets)
+            .padding(12.dp)
     ) {
         for (page in Routes.pages) {
             NavBarItem(
                 page,
                 selected = selectedRoute == page.route,
-                modifier = Modifier.clickable {}
+                modifier = Modifier.clickable {
+                    onChange(page.route)
+                }
             )
         }
     }
@@ -74,8 +71,8 @@ fun NavBar(
 @Composable
 fun NavBarItem(
     page: NavPage,
-    selected: Boolean = false,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    selected: Boolean = false
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -85,7 +82,7 @@ fun NavBarItem(
             imageVector = page.icon,
             contentDescription = page.name,
             colorFilter = ColorFilter.tint(
-                if (selected) OnPrimary else Alternative1
+                if (selected) MaterialTheme.colorScheme.onPrimary else Alternative1
             ),
             modifier = Modifier
                 .padding(bottom = 8.dp)
@@ -93,7 +90,7 @@ fun NavBarItem(
         )
         Text(page.name,
             fontSize = 12.sp,
-            color = if (selected) OnPrimary else Alternative1
+            color = if (selected) MaterialTheme.colorScheme.onPrimary else Alternative1
         )
     }
 }

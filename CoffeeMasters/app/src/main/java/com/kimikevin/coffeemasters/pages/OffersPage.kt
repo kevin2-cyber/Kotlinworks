@@ -1,10 +1,11 @@
-package com.kimikevin.coffeemasters
+package com.kimikevin.coffeemasters.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,23 +22,37 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kimikevin.coffeemasters.R
 
 
-
-@Preview
 @Composable
 fun OffersPage(modifier: Modifier = Modifier) {
-    Column(
-        Modifier.verticalScroll(rememberScrollState())
+    Box(
+        modifier = modifier
+            .fillMaxSize()
     ) {
-        Offer(
-            title = "Early Coffee",
-            description = "10% off. Offer valid from 6am to 9am."
+        Image(
+            painter = painterResource(R.drawable.background_pattern),
+            contentDescription = "Background Pattern",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .matchParentSize()
         )
-        Offer(
-            title = "Welcome Gift",
-            description = "25% off on your first order."
-        )
+
+        Column(
+            modifier = modifier
+                .verticalScroll(rememberScrollState())
+        ) {
+            Offer(
+                title = "Early Coffee",
+                description = "10% off. Offer valid from 6am to 9am."
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Offer(
+                title = "Welcome Gift",
+                description = "25% off on your first order."
+            )
+        }
     }
 }
 
@@ -46,19 +61,11 @@ fun Offer(
     title: String,
     description: String,
 ) {
-
     Box(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
     ) {
-        Image(
-            painter = painterResource(R.drawable.background_pattern),
-            contentDescription = "Background Pattern",
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(180.dp)
-        )
-
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
