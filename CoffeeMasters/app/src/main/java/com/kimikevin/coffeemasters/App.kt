@@ -45,7 +45,8 @@ fun App() {
                 when (selectedRoute.value) {
                     Routes.MenuPage.route ->
                         MenuPage(modifier = Modifier.padding(it))
-                    Routes.OffersPage.route -> OffersPage(modifier = Modifier.padding(it))
+                    Routes.OffersPage.route ->
+                        OffersPage(modifier = Modifier.padding(it))
                     Routes.OrderPage.route ->
                         OrderPage(modifier = Modifier.padding(it))
                     Routes.InfoPage.route ->

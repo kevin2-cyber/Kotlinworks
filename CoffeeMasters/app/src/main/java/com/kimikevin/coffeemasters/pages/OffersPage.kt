@@ -35,7 +35,7 @@ fun OffersPage(modifier: Modifier = Modifier) {
             painter = painterResource(R.drawable.background_pattern),
             contentDescription = "Background Pattern",
             contentScale = ContentScale.Crop,
-            modifier = Modifier
+            modifier = modifier
                 .matchParentSize()
         )
 

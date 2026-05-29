@@ -16,7 +16,7 @@ fun OrderPage(modifier: Modifier = Modifier) {
             painter = painterResource(id = R.drawable.background_pattern),
             contentDescription = "Background Pattern",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.matchParentSize()
+            modifier = modifier.matchParentSize()
         )
     }
 }
